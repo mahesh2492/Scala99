@@ -21,5 +21,6 @@ object Problem8 extends App {
 
   val pObj = new Problem8
   val list =  List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  println("Original List: "+list)
   println("Compressed list "+ pObj.compress(list))
 }
