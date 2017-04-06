@@ -16,9 +16,9 @@ def pack(list:List[Symbol]):List[List[Symbol]] = {
   case head::tail => list.takeWhile(_ == head) :: pack(list.dropWhile(_ == head) )
  }
 }
- def encode(list:List[Symbol]):List[List[Any]] = {
+ def encode(list:List[Symbol]):List[(Int,Symbol)] = {
   val pck = pack(list)
-   pck.map(x => List(x.size,x(0)))
+   pck.map(x => (x.size,x(0)))
 }
 
 }
