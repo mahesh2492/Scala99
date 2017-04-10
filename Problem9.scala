@@ -15,6 +15,13 @@ def pack(list:List[Symbol]):List[List[Symbol]] = {
   case head::tail => list.takeWhile(_ == head) :: pack(list.dropWhile(_ == head) )
 }
 }
+//another solution
+def Pack(list:List[Symbol]):List[List[Symbol]] = {
+      val (pk,next) = list.span(_ == list.head)
+      if(list.isEmpty) List(pk)
+      else
+      pk :: pack(next)
+  }
 }
 
 object Problem9 extends App {
@@ -23,4 +30,5 @@ object Problem9 extends App {
   val list = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
   println("Original List: "+list)
   println("Packed List: "+pObj.pack(list))
+println("Another solution: "+pObj.Pack(list))
 }
