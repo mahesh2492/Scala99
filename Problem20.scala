@@ -20,6 +20,15 @@ def remove(list:List[Int],n:Int):(List[Int],Int) = {
 }
 dropImp(list,List[Int](),0,0)
 }
+
+def removeAt(list:List[Int],n:Int):(List[Int],Int) = {
+   list.splitAt(n) match {
+    case (Nil,_) if n < 0 => throw new NoSuchElementException
+    case (pre,head::tail) => (pre ::: tail,head)
+    case (pre,Nil) => throw new NoSuchElementException
+  }
+ }
+
 }
 
 object Problem20 extends App {
@@ -28,5 +37,7 @@ object Problem20 extends App {
    val list = List(1,2,3,4,5,6,7,8,9)
    val deletingIndex = 3
    println("List after removing kth element :" + pObj.remove(list,deletingIndex))
-   println("List after removing kth element :" + pObj.remove(list,2))
+   println("List after removing kth element :" + pObj.remove(list,2))  
+    println("Remove Kth element :" + pObj.removeAt(list,2))
+
 }
